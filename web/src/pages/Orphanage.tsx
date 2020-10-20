@@ -6,6 +6,7 @@ import '../styles/pages/orphanage.css';
 import Sidebar from "../components/Sidebar";
 import mapIcon from "../utils/mapIcon";
 import api from "../services/api";
+import {useParams } from 'react-router-dom';
 
 interface Orphanage{
   latitude: number;
@@ -17,16 +18,23 @@ interface Orphanage{
   open_on_weekends: string;
 }
 
-export default function Orphanage() {
+interface OrphanageParams{
+  id: string;
+}
 
-  const [orphanages, setOrphanages]  = useState<Orphanage[]>([]);
+export default function Orphanage() {
+  const params = useParams<OrphanageParams>();
+  const [orphanage, setOrphanage]  = useState<Orphanage>();
 
     useEffect( () => {
-        api.get('orphanages').then(response => {
-           setOrphanages (response.data); 
+        api.get(`orphanages/${params.id}`).then(response => {
+           setOrphanage (response.data); 
         });
     }, [] );
 
+    if (!orphanage){
+      return <p>Carregando....</p> 
+    }
 
   return (
     <div id="page-orphanage">
