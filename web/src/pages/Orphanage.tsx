@@ -18,6 +18,7 @@ interface Orphanage{
   opening_hours: string;
   open_on_weekends: string;
   images: Array< {
+    id: number;
     url: string;
   } >;
 }
@@ -51,7 +52,7 @@ export default function Orphanage() {
           <div className="images">
           {orphanage.images.map(image =>{
             return(
-              <button className="active" type="button">
+              <button key={image} className="active" type="button">
               <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
               </button>
             );
