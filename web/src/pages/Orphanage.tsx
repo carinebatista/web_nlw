@@ -49,24 +49,13 @@ export default function Orphanage() {
           <img src={orphanage.images[0].url} alt={orphanage.name} />
 
           <div className="images">
-            <button className="active" type="button">
+          {orphanage.images.map(image =>{
+            return(
+              <button className="active" type="button">
               <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
+              </button>
+            );
+          })}
           </div>
           
           <div className="orphanage-details-content">
@@ -124,10 +113,10 @@ export default function Orphanage() {
               ) }
             </div>
 
-            <button type="button" className="contact-button">
+            { /*<button type="button" className="contact-button">
               <FaWhatsapp size={20} color="#FFF" />
               Entrar em contato
-            </button>
+              </button> */} 
           </div>
         </div>
       </main>
