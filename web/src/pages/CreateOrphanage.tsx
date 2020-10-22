@@ -29,6 +29,10 @@ export default function CreateOrphanage() {
     });
   }
 
+  function handleSelectImages(event:any){
+    console.log(event)
+  }
+  
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
@@ -99,11 +103,17 @@ export default function CreateOrphanage() {
               <label htmlFor="images">Fotos</label>
 
               <div className="images-container">
-                <button type="button" className="new-image">
+                <label htmlFor="image[]" className="new-image">
                   <FiPlus size={24} color="#15b6d6" />
-                </button>
+                </label>
+             
               </div>
-
+              <input 
+                multiple
+                onChange={handleSelectImages}
+                type="file"
+                id="image[]"
+              />
            
             </div>
           </fieldset>
