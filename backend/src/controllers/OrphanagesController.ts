@@ -10,14 +10,12 @@ import orphanageView from '../views/orphanages_view';
 export default{
     // listar os orfanatos
     async index(request : Request, response: Response){
-        const orphanagesRepository = getRepository(Orphanage)
-       
+        const orphanagesRepository = getRepository(Orphanage)  
         const orphanages = await orphanagesRepository.find({
             relations: ['images']
         });
         
         return response.json(orphanageView.renderMany(orphanages));
-
     },
 
     // listar apenas um orfanato especifico
@@ -60,7 +58,7 @@ export default{
             about,
             instructions,
             opening_hours,
-            open_on_weekends,
+            open_on_weekends: open_on_weekends == 'true',
             images,
         };
 
@@ -79,7 +77,7 @@ export default{
                 })
             )
         });
-
+       
         await schema.validate(data, {
             abortEarly :false,
         });
