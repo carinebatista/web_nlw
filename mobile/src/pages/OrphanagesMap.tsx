@@ -14,7 +14,7 @@ export default function OrphanagesMap(){
     navigation.navigate('OrphanageDetails');
   }
 
-  function handleNavigateToOrphanage(){
+  function handleNavigateToCreateOrphanage(){
     navigation.navigate('SelectMapPosition');
   }
 
@@ -52,7 +52,7 @@ export default function OrphanagesMap(){
         <View style={styles.footer}>
             <Text style={styles.footerText}> 2 Orfanatos encontrados </Text>
   
-            <TouchableOpacity style={styles.createOrphanageButton} onPress={handleNavigateToOrphanage}>
+            <TouchableOpacity style={styles.createOrphanageButton} onPress={handleNavigateToCreateOrphanage}>
               <Feather name="plus" size={20} color="#fff"/>
             </TouchableOpacity>
         </View>
