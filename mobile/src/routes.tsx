@@ -25,7 +25,7 @@ export default function Routes (){
                 component={OrphanageDetails}
                 options={{
                     headerShown:true,
-                    header:() => <Header/> 
+                    header:() => <Header title="Orfanato"/> 
                 }}
                  />
 
