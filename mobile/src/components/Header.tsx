@@ -3,15 +3,22 @@ import { View, StyleSheet, Text} from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 
 import {Feather} from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 interface HeaderProps {
     title:String;
 }
 
 export default function Header({title}: HeaderProps){
+    const navigation= useNavigation();
+
+    function handleGoBackToAppHomepage(){
+        navigation.navigate('OrhanagesMap');
+    }
+
     return(
         <View style={styles.container}>
-            <BorderlessButton onPress={() => {}}> 
+            <BorderlessButton onPress={navigation.goBack}> 
                 <Feather 
                     name="arrow-left"
                     size={24}
@@ -19,6 +26,13 @@ export default function Header({title}: HeaderProps){
             </BorderlessButton>
 
             <Text style={styles.title}> {title} </Text>
+
+            <BorderlessButton onPress={handleGoBackToAppHomepage}> 
+                <Feather 
+                    name="x"
+                    size={24}
+                    color="#ff669d"/>
+             </BorderlessButton>
         </View>
     );
 }
