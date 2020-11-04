@@ -15,7 +15,7 @@ export default function Header({title}: HeaderProps){
                 <Feather 
                     name="arrow-left"
                     size={24}
-                    color="#15b6b6"/>
+                    color="#15b6d6"/>
             </BorderlessButton>
 
             <Text style={styles.title}> {title} </Text>
